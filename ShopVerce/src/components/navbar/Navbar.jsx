@@ -7,7 +7,9 @@ import "./Navbar.css";
 import "../sideBar/Sidebar";
 
 function Navbar() {
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const {
+    data,
     setUser,
     searchItem,
     setSearchItem,
@@ -16,10 +18,18 @@ function Navbar() {
     setAtiveHambar,
   } = useContext(ApiContext);
 
+  const products = data?.products || [];
+
+  const suggestions = searchItem.trim()
+    ? products
+        .filter((product) =>
+          product.title.toLowerCase().includes(searchItem.toLowerCase()),
+        )
+        .slice(0, 5)
+    : [];
+
   const user = JSON.parse(localStorage.getItem("currentUser")) || {};
   // const currentUser = users.find((loginUser) => user.email === loginUser.email);
-
-
 
   const [showCard, setShowCard] = useState(false);
   const profileRef = useRef(null);
@@ -50,6 +60,7 @@ function Navbar() {
       .toUpperCase() || "U";
 
   function goHomePage() {
+    setSearchItem("");
     navigate("/app");
   }
 
@@ -67,13 +78,40 @@ function Navbar() {
         ShopVerse
       </h1>
 
-      <input
-        type="text"
-        className={`search-input ${theam ? "dark" : ""}`}
-        placeholder="Search products..."
-        value={searchItem}
-        onChange={(e) => setSearchItem(e.target.value)}
-      />
+      <div className="search-wrapper">
+        <input
+          type="text"
+          className={`search-input ${theam ? "dark" : ""}`}
+          placeholder="Search products..."
+          value={searchItem}
+          onChange={(e) => {
+            setSearchItem(e.target.value);
+            setShowSuggestions(true);
+            navigate("/app/product");
+          }}
+          onFocus={() => searchItem && setShowSuggestions(true)}
+          onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+        />
+
+        {showSuggestions && suggestions.length > 0 && (
+          <div className="search-suggestions">
+            {suggestions.map((item) => (
+              <div
+                key={item.id}
+                className="suggestion-item"
+                onClick={() => {
+                  setSearchItem(item.title);
+                  setShowSuggestions(false);
+                  navigate("/app/product");
+                }}
+              >
+                <img src={item.images[0]} alt={item.title} />
+                <span>{item.title}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
       <RxHamburgerMenu className="pageNavigateOption" onClick={showSidebar} />
 

@@ -50,7 +50,8 @@ function WishList() {
 
   return (
     <div className="wishlist-container">
-      <h1>My Wishlist ({initialWishlist.length})</h1>
+      <h1>You want buy..?</h1>
+      <h4>Total wishlist {initialWishlist.length}</h4>
 
       <div className="wishlist-grid">
         {initialWishlist.map((item) => (

@@ -9,32 +9,34 @@ function Home() {
   const { data, searchItem, theam } = useContext(ApiContext);
   const products = data?.products || [];
 
-  const [startProduct] = useState(() => Math.floor(Math.random() * 30));
+  const [startProduct] = useState(() =>
+    Math.floor(Math.random() * Math.max(products.length - 4, 1)),
+  );
   const [productNum, setProductNum] = useState(startProduct);
 
   const fuse = useMemo(() => {
-    if (!products.length) return null;
     return new Fuse(products, {
       keys: ["title", "brand", "category"],
       threshold: 0.4,
     });
   }, [products]);
 
-  // 🔍 Search logic
   const filteredProducts = useMemo(() => {
-    if (!fuse || !searchItem.trim()) return [];
+    if (!searchItem.trim()) return products;
     return fuse.search(searchItem).map((result) => result.item);
-  }, [fuse, searchItem]);
+  }, [searchItem, fuse, products]);
 
-  //  Auto-rotate banner product
   useEffect(() => {
+    if (products.length < 4) return;
+
     const timer = setInterval(() => {
       setProductNum((prev) =>
-        prev === startProduct + 3 ? startProduct : prev + 1,
+        prev >= startProduct + 3 ? startProduct : prev + 1,
       );
     }, 4000);
+
     return () => clearInterval(timer);
-  }, [startProduct]);
+  }, [startProduct, products.length]);
 
   const product = products[productNum];
   const isSearchActive = searchItem.trim().length > 0;
@@ -46,7 +48,7 @@ function Home() {
         {filteredProducts.length > 0 ? (
           filteredProducts.map((item) => (
             <div className="product-component" key={item.id}>
-              <ProductCard data={item} />
+              <ProductCard item={item} />
             </div>
           ))
         ) : (
@@ -56,19 +58,19 @@ function Home() {
     );
   }
 
-  // NORMAL HOME VIEW
+  // 🏠 NORMAL HOME VIEW
   return (
     <div className="main-content-container">
       {product && (
         <div className={`hero-banner ${theam ? "bannerdark" : ""}`}>
-          <h3>Tranding products..</h3>
-          <img src={product?.images?.[0]} alt="banner" className="hero-image" />
+          <h3>Trending products..</h3>
+          <img src={product.images?.[0]} alt="banner" className="hero-image" />
           <div className="hero-overlay">
-            <h1>Starting from just ${product?.price}</h1>
-            <h4 className="subtitle">{product?.title}</h4>
+            <h1>Starting from just ${product.price}</h1>
+            <h4 className="subtitle">{product.title}</h4>
             <div className="brands">
-              <span>{product?.brand}</span>
-              <span id="availabilityStatus">{product?.availabilityStatus}</span>
+              <span>{product.brand}</span>
+              <span id="availabilityStatus">{product.availabilityStatus}</span>
             </div>
             <Link to="/app/product">
               <button className="shop-btn">Shop Now</button>

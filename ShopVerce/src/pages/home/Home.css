@@ -108,9 +108,11 @@ h3 {
   margin-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 25px;
+  margin-left: 1.7vw;
+  flex-wrap: wrap;
 }
 
 /* Media quairy */

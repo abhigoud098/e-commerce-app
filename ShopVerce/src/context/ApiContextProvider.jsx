@@ -3,22 +3,28 @@ import { useEffect, useState } from "react";
 
 function ApiContextProvider({ children }) {
   const [data, setData] = useState(null);
-  const [searchItem, setSearchItem] = useState("");
+  const [searchItem, setSearchItem] = useState(
+    () => localStorage.getItem("lastSearch") || ""
+  );
   const [user, setUser] = useState(null);
   const [userInfo, setUserInfo] = useState("");
   const [theam, setTheam] = useState("");
   const [activeHambar, setAtiveHambar] = useState(false);
 
+  // fetch products
   useEffect(() => {
     const fetchProducts = async () => {
       const res = await fetch("https://dummyjson.com/products");
       const result = await res.json();
-
       setData(result);
     };
-
     fetchProducts();
   }, []);
+
+
+  useEffect(() => {
+    localStorage.setItem("lastSearch", searchItem);
+  }, [searchItem]);
 
   return (
     <ApiContext.Provider

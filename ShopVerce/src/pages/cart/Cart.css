@@ -79,14 +79,6 @@
   padding: 0 10px;
 }
 
-.remove-btn {
-  background: none;
-  border: none;
-  color: #007185;
-  cursor: pointer;
-  width: 60px;
-}
-
 .summary-row {
   display: flex;
   justify-content: space-between;
@@ -125,6 +117,11 @@
   background: #0f172a;
   color: #fff;
   --card-bg: #1e293b;
+}
+
+.footer-div {
+ position: relative;
+ top: 16vh;
 }
 
 /* RESPONSIVE */

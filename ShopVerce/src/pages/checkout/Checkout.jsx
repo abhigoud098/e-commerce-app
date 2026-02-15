@@ -110,7 +110,7 @@ function Checkout() {
               <p>No saved address</p>
             )}
             <button className="addAddress" onClick={addressadd}>
-              +
+              Add address
             </button>
           </div>
 

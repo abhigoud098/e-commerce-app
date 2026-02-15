@@ -6,6 +6,13 @@
 
 .wishlist-container h1 {
   margin-bottom: 20px;
+  color: #ff6a00;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.wishlist-container h4 {
+  margin-bottom: 30px;
 }
 
 .wishlist-grid {
@@ -33,8 +40,8 @@
 }
 
 .wishlist-card img {
-  width: 100%;
-  height: 180px;
+  width: fit-content;
+  height: 100px;
   object-fit: cover;
 }
 
@@ -73,7 +80,6 @@
 }
 
 .remove-btn {
-  flex: 1;
   background: #f44336;
   color: #fff;
   border: none;
