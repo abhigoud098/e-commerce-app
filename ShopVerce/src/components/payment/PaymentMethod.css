@@ -1,0 +1,104 @@
+.payment-wrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+}
+
+.payment-wrapper.dark {
+  background-color: #1a1a1a;
+  border: none;
+}
+
+.payment-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* COMMON BOX */
+.pay-box {
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+}
+
+.pay-box.dark {
+  background-color: #fff;
+  border: none;
+  color: #fff;
+}
+
+.pay-box.active {
+  border-color: #f59e0b;
+  background: #fffaf0;
+}
+
+/* HEADER */
+.pay-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ICONS */
+.card-icons,
+.upi-icons {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.card-icons img {
+  height: 26px;
+}
+
+.upi-icons img {
+  height: 28px;
+}
+
+/* FORM */
+.card-form input,
+.upi-input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+/* COD */
+.cod-note {
+  font-size: 13px;
+  color: #374151;
+  margin-top: 10px;
+}
+
+/* PAY BUTTON */
+.pay-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #f5700b;
+  color: #111827;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.pay-btn:hover {
+  background: #ffbf6c;
+}

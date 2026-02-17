@@ -81,6 +81,11 @@ h3 {
   cursor: pointer;
 }
 
+.shop-btn.dark {
+  background-color: #fff;
+  color: #000;
+}
+
 /* arrows */
 .nav {
   position: absolute;

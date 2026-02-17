@@ -205,6 +205,10 @@
   opacity: 0.9;
 }
 
+.cart-btn.dark {
+  background-color: #fff;
+  color: #000;
+}
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 480px) {

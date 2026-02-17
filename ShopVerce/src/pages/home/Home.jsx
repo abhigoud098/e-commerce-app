@@ -73,7 +73,7 @@ function Home() {
               <span id="availabilityStatus">{product.availabilityStatus}</span>
             </div>
             <Link to="/app/product">
-              <button className="shop-btn">Shop Now</button>
+              <button className={`shop-btn ${theam ? "dark" : ""}`}>Shop Now</button>
             </Link>
           </div>
         </div>

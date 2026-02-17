@@ -53,7 +53,7 @@ function Login() {
   };
 
   return (
-    <>
+    <div className="login-wrapper">
       <ToastContainer position="top-right" theme="colored" />
 
       <div className="login">
@@ -93,7 +93,7 @@ function Login() {
           </span>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

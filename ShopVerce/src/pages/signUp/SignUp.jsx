@@ -42,7 +42,7 @@ function SignUp() {
   };
 
   return (
-    <>
+    <div className="signup-wrapper">
       <ToastContainer position="top-right" theme="colored" />
 
       <div className="signup">
@@ -143,7 +143,7 @@ function SignUp() {
           </span>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

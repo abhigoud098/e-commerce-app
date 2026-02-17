@@ -5,6 +5,17 @@ import ApiContext from "../../context/ApiContext";
 import Footer from "../../components/footer/Footer";
 
 function Cart() {
+ const scrollToTop = () => {
+  const cart = document.getElementById("cart-wrapper");
+  if (cart) {
+    cart.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+};
+
+
   const { theam } = useContext(ApiContext);
 
   const [cartItems, setCartItems] = useState([]);
@@ -115,7 +126,7 @@ function Cart() {
         </div>
       </div>
       <div className="footer-div">
-        <Footer />
+        <Footer onBackToTop={scrollToTop} />
       </div>
     </div>
   );

@@ -2,302 +2,114 @@
   display: flex;
   gap: 30px;
   padding: 30px;
-  height: 85vh;
-  width: 100vw;
+  background-color: #f3f4f6;
 }
 
-/* ================= LIGHT ================= */
-
-.checkout-left,
-.checkout-right {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 14px;
+.checkout-wrapper.dark {
+  background: #000;
 }
 
+/* LEFT / RIGHT */
 .checkout-left {
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .checkout-right {
   flex: 1;
+  background: #fff;
+  padding: 24px;
+  border-radius: 14px;
+  position: sticky;
+  top: 30px;
   height: fit-content;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-.back-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 16px;
+.checkout-right h4 {
+  margin-block: 20px;
 }
 
-.address-box {
+/* COMMON BOX */
+.box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
   border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 12px;
 }
 
+/* ADDRESS */
 .address-item {
   display: flex;
   gap: 10px;
-  align-items: center;
-  padding: 8px;
-}
-
-.address-item input {
-  width: 40px;
-  margin-top: 6px;
-}
-
-.address-text {
-  flex: 1;
-  font-size: 14px;
-  display: flex;
-}
-
-.delete-btn {
-  border: none;
-  background: transparent;
+  padding: 10px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
 .addAddress {
-  height: 35px;
-  width: 100px;
-  font-size: 15px;
-  background-color: #e85c12;
-  border: none;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 7px;
-  color: #fff;
-  font-weight: 900;
-}
-
-.section {
-  margin-top: 30px;
-}
-
-.section h4 {
-  margin-bottom: 20px;
-}
-
-.section h5 {
-  margin-bottom: 10px;
-}
-
-.upiInput {
-  width: 13vw;
-  margin-top: 20px;
-}
-
-.payment-methods {
-  display: flex;
-  gap: 12px;
-}
-
-.pay-card {
-  border: 2px solid #ddd;
-  border-radius: 12px;
-  padding: 14px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-}
-
-.pay-card img {
-  height: 30px;
-  pointer-events: none;
-}
-
-/* hide radio */
-.pay-card input {
-  display: none;
-}
-
-/* ACTIVE STATE */
-.pay-card input:checked + img {
-  transform: scale(1.05);
-}
-
-.pay-card:has(input:checked) {
-  border-color: #111;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  background: #f9f9f9;
-}
-
-input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  margin-top: 15px;
-}
-
-.card-row {
-  display: flex;
-  gap: 10px;
-}
-
-.confirm {
-  margin-top: 20px;
-  padding: 14px;
+  margin-top: 12px;
   background: #e85c12;
   color: #fff;
-  border: none;
+  padding: 10px;
   border-radius: 10px;
+  border: none;
   cursor: pointer;
+  font-weight: 600;
 }
 
+.addAddress.dark {
+  color: #fff;
+}
+
+/* SUMMARY */
 .summary-item,
 .summary-row {
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
   margin-bottom: 10px;
 }
 
-.total {
-  font-weight: bold;
+.summary-row.total {
+  font-size: 16px;
+  font-weight: 700;
 }
 
-.saving {
-  background: #e6fff1;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 14px 0;
-}
-
-.coupon {
-  display: flex;
-  gap: 8px;
-}
-.coupon button {
-  background-color: #000000;
-  color: #ffffff;
-  width: 180px;
-  height: 45px;
-  border-radius: 10px;
+/* BACK */
+.back-btn {
+  background: none;
   border: none;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-/* ================= DARK ================= */
+/* PROCESSING */
+.processing {
+  font-size: 14px;
+  color: #e85c12;
+}
 
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* DARK MODE */
 .dark {
   background: #0f0f0f;
   color: #fff;
 }
 
-.dark .checkout-left,
+.dark .box,
 .dark .checkout-right {
   background: #1a1a1a;
-  color: #ffffff;
-}
-
-.dark input {
-  background: #2a2a2a;
-  color: #fff;
-  border: 1px solid #444;
-}
-
-.dark .address-box {
-  background: #2a2a2a;
-  border-color: #444;
-}
-
-.dark .saving {
-  background: #123b2a;
-  color: #7dffbf;
-}
-
-.dark .back-btn {
-  color: #fff;
-}
-
-.dark .coupon button {
-  background-color: #fff;
-  color: #0f0f0f;
-  width: 180px;
-  height: 45px;
-  border-radius: 10px;
-}
-
-.checkout-right {
-  position: sticky;
-  top: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.checkout-right h4 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 18px;
-}
-
-.summary-item {
-  font-size: 14px;
-  color: #374151;
-}
-
-.dark .pay {
-  background-color: white;
-}
-
-.checkout-right hr {
-  border: none;
-  border-top: 1px solid #e5e7eb;
-  margin: 16px 0;
-}
-
-.summary-row {
-  font-size: 14px;
-  color: #374151;
-}
-
-.summary-row.total {
-  font-size: 16px;
-  padding-top: 6px;
-}
-
-.saving {
-  font-size: 14px;
-  font-weight: 500;
-  text-align: center;
-}
-
-.coupon input {
-  height: 45px;
-  font-size: 14px;
-}
-
-.coupon button {
-  font-weight: 500;
-  cursor: pointer;
-  margin-top: 15px;
-}
-
-.dark .delete-btn {
-  color: #fff;
-}
-
-/* ================= MODAL ================= */
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
+  border-color: #333;
 }

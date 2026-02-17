@@ -1,21 +1,18 @@
 import "./Footer.css";
 
-const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+const Footer = ({onBackTotop}) => {
 
   return (
     <footer className="footer">
       {/* Back to top */}
-      <div className="footer-top" onClick={scrollToTop}>
+      <div className="footer-top" onClick={onBackTotop}>
         Back to top
       </div>
 
       {/* Main footer links */}
       <div className="footer-main">
         <div>
-          <h4>Get to Know ShopVerca</h4>
+          <h4>Get to Know ShopVerce</h4>
           <ul>
             <li>About Us</li>
             <li>Careers</li>
@@ -57,7 +54,10 @@ const Footer = () => {
 
       {/* Bottom bar */}
       <div className="footer-bottom">
-        <div className="footer-brand"><img src="/src/assets/icone.png" alt="icon"/>ShopVerca</div>
+        <div className="footer-brand">
+          <img src="/src/assets/icone.png" alt="icon" />
+          ShopVerce
+        </div>
 
         <div className="footer-meta">
           <span>🌐 English</span>
@@ -71,7 +71,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-copy">
-        © {new Date().getFullYear()} ShopVerca. All rights reserved.
+        © {new Date().getFullYear()} ShopVerce. All rights reserved.
       </div>
     </footer>
   );
