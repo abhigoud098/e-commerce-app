@@ -1,63 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Liter:wght@300;400;500;600&display=swap");
+
+/* Background */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Liter", sans-serif;
+  background: radial-gradient(
+      circle at top,
+      rgba(255, 109, 31, 0.18),
+      transparent 45%
+    ),
+}
+
+/* Wrapper */
 .login-wrapper {
   width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
+/* Login Card */
 .login {
-  max-width: 280px;
-  background-color: #ffffff;
-  border-radius: 5px;
-}
-.hader {
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-}
-.hader p {
-  text-align: center;
-  font-size: 18px;
-  font-weight: 400;
-  color: #706b6b;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
-form input {
-  height: 40px;
-  outline: none;
-  border: 1px solid #cccccc;
-  padding: 10px;
-  font-size: 15px;
-  border-radius: 8px;
-}
-form input[type="submit"] {
-  background-color: #ff6d1f;
-  color: #ffffff;
-  font-size: 17px;
-  height: 50px;
-}
-form span {
-  text-align: center;
-  font-size: 16px;
-  padding-top: 10px;
-  color: #706b6b;
-}
-form span a {
-  text-decoration: none;
-  color: rgba(36, 36, 207, 0.671);
-  font-weight: 500;
-}
-.error {
-  color: red;
-  font-size: 12px;
-  margin-top: 4px;
+  width: 340px;
+  padding: 28px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  animation: floatIn 0.6s ease;
 }
 
-span {
+/* Header */
+.header {
+  text-align: center;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
   color: #ff6d1f;
 }
 
+.header p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* Form */
+form {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Inputs */
+form input {
+  height: 48px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+form input:focus {
+  border-color: #ff6d1f;
+  box-shadow: 0 0 0 3px rgba(255, 109, 31, 0.22);
+}
+
+/* Submit Button */
+form input[type="submit"] {
+  margin-top: 6px;
+  height: 50px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff6d1f, #ff8c4b);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(255, 109, 31, 0.45);
+}
+
+/* Footer text */
+form span {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+form span a {
+  color: #ff6d1f;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* Error */
+.error {
+  font-size: 12px;
+  color: #ff3b3b;
+}
+
+/* Animation */
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

@@ -62,11 +62,14 @@
   font-size: 22px;
   font-weight: bold;
   color: #ff7b00;
-  font-family: "Pacifico", cursive;
   font-size: 26px;
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+.footer-brand span {
+  font-family: "Pacifico", cursive;
 }
 
 .footer-brand img {

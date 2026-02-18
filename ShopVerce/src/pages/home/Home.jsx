@@ -58,7 +58,6 @@ function Home() {
     );
   }
 
-  // 🏠 NORMAL HOME VIEW
   return (
     <div className="main-content-container">
       {product && (

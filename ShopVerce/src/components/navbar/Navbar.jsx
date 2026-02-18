@@ -75,7 +75,7 @@ function Navbar() {
   return (
     <nav className={`nav-container ${theam ? "dark" : ""}`}>
       <h1 className="nav-logo" onClick={goHomePage}>
-        ShopVerse
+        Shop<span>Verce</span>
       </h1>
 
       <div className="search-wrapper">

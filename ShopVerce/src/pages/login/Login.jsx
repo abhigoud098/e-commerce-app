@@ -3,8 +3,6 @@ import "./Login.css";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import { useContext } from "react";
-// import ApiContext from "../../context/ApiContext";
 
 function Login() {
   const {
@@ -12,8 +10,6 @@ function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  // const {setUser} = useContext(ApiContext);
 
   const navigate = useNavigate();
 
@@ -23,33 +19,22 @@ function Login() {
     const existingUser = users.find(
       (user) =>
         user.email === logedUserData.email &&
-        user.password === logedUserData.password,
+        user.password === logedUserData.password
     );
 
-    const loggedInUser = JSON.parse(localStorage.getItem("logedUser")) || [];
-    if (
-      !loggedInUser.find(
-        (currentLogedUser) => existingUser.email === currentLogedUser.email,
-      )
-    ) {
-      const updatedUsers = [...loggedInUser, existingUser];
-      localStorage.setItem("logedUser", JSON.stringify(updatedUsers));
+    if (!existingUser) {
+      toast.error("Invalid email or password");
+      return;
     }
 
     localStorage.setItem("currentUser", JSON.stringify(existingUser));
 
-    if (existingUser) {
-      toast.loading("login...");
-      setTimeout(() => {
-        toast.dismiss();
-        toast.success("Login successful");
-        setTimeout(() => {
-          navigate("/app");
-        }, 2000);
-      }, 3000);
-    } else {
-      toast.error("Invalid email or password");
-    }
+    toast.loading("Logging in...");
+    setTimeout(() => {
+      toast.dismiss();
+      toast.success("Welcome back 🎉");
+      setTimeout(() => navigate("/app"), 1500);
+    }, 2000);
   };
 
   return (
@@ -57,8 +42,9 @@ function Login() {
       <ToastContainer position="top-right" theme="colored" />
 
       <div className="login">
-        <div className="hader">
-          <span>Welcome Back..!</span>
+        <div className="header">
+          <h2>Welcome Back 👋</h2>
+          <p>Login to continue shopping</p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -89,7 +75,7 @@ function Login() {
           <input type="submit" value="Login" />
 
           <span>
-            Not a member? <Link to="/app/Sign-up">Sign-Up</Link>
+            Not a member? <Link to="/app/Sign-up">Create account</Link>
           </span>
         </form>
       </div>

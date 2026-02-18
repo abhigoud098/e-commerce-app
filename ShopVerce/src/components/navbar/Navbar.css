@@ -20,10 +20,13 @@
 
 /* ================= Logo ================= */
 .nav-logo {
-  font-family: "Pacifico", cursive;
   font-size: 26px;
   color: #e85c12;
   cursor: pointer;
+}
+
+.nav-logo span {
+  font-family: "Pacifico", cursive;
 }
 
 /* ================= Search ================= */
