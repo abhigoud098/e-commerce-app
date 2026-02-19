@@ -31,12 +31,12 @@
 /* ================= PRODUCT CARD ================= */
 
 .productcard {
-  width: 15vw;
-  min-width: 220px;
+  max-width: min(20vw, 280px);
   background: var(--bg-card);
   color: var(--text-main);
   border-radius: 14px;
   overflow: hidden;
+  height: 40vh;
 
   display: flex;
   flex-direction: column;
@@ -185,7 +185,6 @@
 .cart-btn {
   margin-top: auto;
   width: 100%;
-  padding: 10px;
   border: none;
   border-radius: 8px;
 

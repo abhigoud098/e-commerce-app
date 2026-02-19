@@ -1,8 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Liter:wght@300;400;500;600&display=swap");
 
+/* ================= Root ================= */
+.dark {
+  background-color: #111;
+  color: #ffffff;
+}
+
 /* ================= Navbar ================= */
 .nav-container {
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,11 +20,6 @@
   background: #ffffff;
   border-bottom: 1px solid #eee;
   height: 10vh;
-}
-
-.dark {
-  background-color: #111;
-  color: white;
 }
 
 /* ================= Logo ================= */
@@ -32,6 +36,7 @@
 /* ================= Search ================= */
 .search-wrapper {
   position: relative;
+  z-index: 5;
   flex: 1;
   max-width: 420px;
   width: 100%;
@@ -61,7 +66,7 @@
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  z-index: 999;
+  z-index: 10;
   max-height: 320px;
   overflow-y: auto;
 }
@@ -113,14 +118,14 @@
   position: relative;
   width: 52px;
   height: 26px;
+  flex-shrink: 0;
 }
 
 .toggle-checkbox {
   opacity: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
   position: absolute;
+  inset: 0;
+  cursor: pointer;
   z-index: 2;
 }
 
@@ -157,7 +162,7 @@
   left: 3px;
   width: 20px;
   height: 20px;
-  background: white;
+  background: #ffffff;
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
@@ -170,10 +175,12 @@
   transform: translateX(26px);
 }
 
+/* ================= Profile Icon ================= */
 .profile {
   position: relative;
   cursor: pointer;
-  font-size: 36px;
+  font-size: 34px;
+  z-index: 30;
 }
 
 /* ================= Account Card ================= */
@@ -183,148 +190,155 @@
   right: 0;
   width: 300px;
   background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   overflow: hidden;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .dark .account-card {
   background: #1a1a1a;
 }
 
-/* Header */
+/* ================= Account Header ================= */
 .account-header {
   background: #ff7b00;
-  color: white;
+  color: #ffffff;
   padding: 12px;
+  font-size: 14px;
   font-weight: 600;
   text-align: center;
 }
 
-/* Body */
+/* ================= Account Body ================= */
 .account-body {
-  padding: 16px;
+  padding: 18px 16px 20px;
 }
 
-/* Profile section */
+/* ================= Profile Section ================= */
 .profile-section {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
-/* Avatar */
+/* ================= Avatar ================= */
 .avatar {
-  width: 56px;
-  height: 56px;
-  background: #ffe6cc;
-  color: #ff7b00;
+  width: 48px;
+  height: 48px;
+  background: #ff8a1f;
+  color: #ffffff;
   border-radius: 50%;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  flex-shrink: 0;
 }
 
-/* User info */
+/* ================= User Info ================= */
 .user-info {
-  text-align: center;
+  text-align: left;
+  flex: 1;
 }
 
 .user-info h3 {
-  margin: 6px 0;
-  font-size: 16px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+.dark .user-info h3 {
+  color: #ffffff;
 }
 
 .user-info p {
   margin: 2px 0;
-  font-size: 13px;
-  color: #555;
-  word-break: break-word;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
 }
 
 .dark .user-info p {
-  color: #ccc;
+  color: #bbb;
 }
 
-/* Chips */
+/* ================= Chips ================= */
 .chips {
   display: flex;
   gap: 6px;
-  justify-content: center;
   margin-top: 6px;
 }
 
 .chip {
-  background: #f1f3f6;
-  padding: 4px 10px;
+  background: #f3f4f6;
+  padding: 3px 10px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 10px;
+  font-weight: 500;
+  color: #444;
 }
 
 .dark .chip {
-  background: #333;
+  background: #2a2a2a;
+  color: #ccc;
 }
 
-/* Divider */
+/* ================= Divider ================= */
 .divider {
   height: 1px;
   background: #eee;
-  margin: 14px 0;
+  margin: 16px 0;
 }
 
-/* Logout */
+.dark .divider {
+  background: #333;
+}
+
+/* ================= Logout Button ================= */
 .logout-btn {
   width: 100%;
-  padding: 8px;
-  border-radius: 999px;
+  padding: 10px 0;
+  border-radius: 8px;
   border: 1px solid #ff7b00;
-  background: transparent;
+  background: #ffffff;
   color: #ff7b00;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .logout-btn:hover {
   background: #ff7b00;
-  color: white;
+  color: #ffffff;
 }
 
-/* ================= Responsive ================= */
+.dark .logout-btn {
+  background: transparent;
+}
+
+/* ================= Mobile ================= */
 .pageNavigateOption {
   display: none;
   font-size: 30px;
+  cursor: pointer;
 }
 
 @media (max-width: 480px) {
+  .nav-links,
   .profile {
     display: none;
   }
 
   .pageNavigateOption {
     display: block;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-links {
-    display: none;
   }
 
   .nav-logo {
-    display: block;
     font-size: 15px;
-  }
-
-  .profile {
-    display: none;
-  }
-
-  .pageNavigateOption {
-    display: block;
   }
 
   .search-input {

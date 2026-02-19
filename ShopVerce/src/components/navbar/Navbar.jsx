@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ApiContext from "../../context/ApiContext";
 import { RxHamburgerMenu } from "react-icons/rx";
 import "./Navbar.css";
-import "../sideBar/Sidebar";
+import Sidebar from "../sideBar/Sidebar";
 
 function Navbar() {
   const [showSuggestions, setShowSuggestions] = useState(false);

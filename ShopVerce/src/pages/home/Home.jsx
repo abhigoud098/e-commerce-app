@@ -62,7 +62,6 @@ function Home() {
     <div className="main-content-container">
       {product && (
         <div className={`hero-banner ${theam ? "bannerdark" : ""}`}>
-          <h3>Trending products..</h3>
           <img src={product.images?.[0]} alt="banner" className="hero-image" />
           <div className="hero-overlay">
             <h1>Starting from just ${product.price}</h1>

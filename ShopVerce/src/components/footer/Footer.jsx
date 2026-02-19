@@ -55,8 +55,7 @@ const Footer = ({onBackTotop}) => {
       {/* Bottom bar */}
       <div className="footer-bottom">
         <div className="footer-brand">
-          <img src="/src/assets/icone.png" alt="icon" />
-          Shop<span>Verce</span>
+        <img src="/src/assets/icone.png" alt="icon" />ShopVerce
         </div>
 
         <div className="footer-meta">

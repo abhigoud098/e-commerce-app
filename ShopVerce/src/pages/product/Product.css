@@ -1,5 +1,5 @@
 .main-container {
-  height: 85vh;
+  height: calc(100vh - 30vh);
   width: 100vw;
 }
 

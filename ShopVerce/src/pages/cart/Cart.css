@@ -1,5 +1,5 @@
 .cart-wrapper {
-  height: 100vh;
+  height: 85vh;
   width: 100vw;
   padding: 20px;
 }
@@ -118,7 +118,7 @@
 
 .footer-div {
   position: relative;
-  top: 16vh;
+  bottom: 1vh;
 }
 
 /* RESPONSIVE */
