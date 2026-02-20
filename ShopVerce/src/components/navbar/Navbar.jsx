@@ -13,8 +13,8 @@ function Navbar() {
     setUser,
     searchItem,
     setSearchItem,
-    setTheam,
-    theam,
+    setThem,
+    them,
     setAtiveHambar,
   } = useContext(ApiContext);
 
@@ -64,16 +64,21 @@ function Navbar() {
     navigate("/app");
   }
 
-  function theamChanger(e) {
-    setTheam(e.target.checked);
+  function themChanger(e) {
+    const currThem = e.target.checked ? "dark" : "light";
+    setThem(currThem);
   }
+
+  useEffect(() => {
+    localStorage.setItem("them", them);
+  }, [them]);
 
   function showSidebar() {
     setAtiveHambar((prev) => !prev);
   }
 
   return (
-    <nav className={`nav-container ${theam ? "dark" : ""}`}>
+    <nav className={`nav-container ${them === "dark" ? "dark" : ""}`}>
       <h1 className="nav-logo" onClick={goHomePage}>
         Shop<span>Verce</span>
       </h1>
@@ -81,7 +86,7 @@ function Navbar() {
       <div className="search-wrapper">
         <input
           type="text"
-          className={`search-input ${theam ? "dark" : ""}`}
+          className={`search-input ${them === "dark" ? "dark" : ""}`}
           placeholder="Search products..."
           value={searchItem}
           onChange={(e) => {
@@ -134,7 +139,8 @@ function Navbar() {
         <input
           className="toggle-checkbox"
           type="checkbox"
-          onChange={theamChanger}
+          checked={them === "dark"}
+          onChange={themChanger}
         />
         <div className="toggle-container">
           <div className="toggle-button">
@@ -158,12 +164,12 @@ function Navbar() {
 
       <div className="profile" ref={profileRef}>
         <FaUserCircle
-          className={`profile-icone ${theam ? "dark" : ""}`}
+          className={`profile-icone ${them === "dark" ? "dark" : ""}`}
           onClick={() => setShowCard(true)}
         />
 
         {showCard && user && (
-          <div className={`account-card ${theam ? "dark" : ""}`}>
+          <div className={`account-card ${them === "dark" ? "dark" : ""}`}>
             <div className="account-header">My Account</div>
 
             <div className="account-body">

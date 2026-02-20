@@ -5,7 +5,7 @@ import ApiContext from "../../context/ApiContext";
 
 function ProductCard({ item }) {
   const [liked, setLiked] = useState(false);
-  const { theam, data } = useContext(ApiContext);
+  const { them, data } = useContext(ApiContext);
 
   const handleShare = async () => {
     const shareUrl = window.location.href;
@@ -49,7 +49,7 @@ function ProductCard({ item }) {
   }
 
   return (
-    <div className={`productcard ${theam ? "dark" : ""}`}>
+    <div className={`productcard ${them === "dark" ? "dark" : ""}`}>
       <div className="image-box">
         <img src={item?.images[0]} alt={item?.brand} />
 
@@ -67,7 +67,7 @@ function ProductCard({ item }) {
 
       <div className="product-info">
         <h3>{item?.title}</h3>
-        <p c className={`desc ${theam ? "dark" : ""}`}>
+        <p c className={`desc ${them === "dark" ? "dark" : ""}`}>
           {item?.description}
         </p>
 
@@ -77,7 +77,7 @@ function ProductCard({ item }) {
         </div>
 
         <button
-          className={`cart-btn ${theam ? "dark" : "light"}`}
+          className={`cart-btnn ${them === "dark" ? "dark" : ""}`}
           onClick={() => sendIdOfProduct(item.id)}
         >
           Add to Cart

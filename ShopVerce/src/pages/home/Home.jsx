@@ -6,7 +6,7 @@ import Fuse from "fuse.js";
 import { Link } from "react-router-dom";
 
 function Home() {
-  const { data, searchItem, theam } = useContext(ApiContext);
+  const { data, searchItem, them } = useContext(ApiContext);
   const products = data?.products || [];
 
   const [startProduct] = useState(() =>
@@ -59,9 +59,9 @@ function Home() {
   }
 
   return (
-    <div className="main-content-container">
+    <div className={`main-content-container ${them === "dark" ? "dark" : ""}`}>
       {product && (
-        <div className={`hero-banner ${theam ? "bannerdark" : ""}`}>
+        <div className={`hero-banner ${them === "dark" ? "dark" : ""}`}>
           <img src={product.images?.[0]} alt="banner" className="hero-image" />
           <div className="hero-overlay">
             <h1>Starting from just ${product.price}</h1>
@@ -71,7 +71,9 @@ function Home() {
               <span id="availabilityStatus">{product.availabilityStatus}</span>
             </div>
             <Link to="/app/product">
-              <button className={`shop-btn ${theam ? "dark" : ""}`}>Shop Now</button>
+              <button className={`shop-btn ${them === "dark" ? "dark" : ""}`}>
+                Shop Now
+              </button>
             </Link>
           </div>
         </div>

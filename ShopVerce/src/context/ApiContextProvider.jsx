@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 function ApiContextProvider({ children }) {
   const [data, setData] = useState(null);
   const [searchItem, setSearchItem] = useState(
-    () => localStorage.getItem("lastSearch") || ""
+    () => localStorage.getItem("lastSearch") || "",
   );
   const [user, setUser] = useState(null);
   const [userInfo, setUserInfo] = useState("");
-  const [theam, setTheam] = useState("");
   const [activeHambar, setAtiveHambar] = useState(false);
+  const [them, setThem] = useState(localStorage.getItem("them") || "light");
 
   // fetch products
   useEffect(() => {
@@ -20,7 +20,6 @@ function ApiContextProvider({ children }) {
     };
     fetchProducts();
   }, []);
-
 
   useEffect(() => {
     localStorage.setItem("lastSearch", searchItem);
@@ -35,10 +34,10 @@ function ApiContextProvider({ children }) {
         setSearchItem,
         user,
         setUser,
+        them,
+        setThem,
         userInfo,
         setUserInfo,
-        theam,
-        setTheam,
         activeHambar,
         setAtiveHambar,
       }}
