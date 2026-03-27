@@ -2,8 +2,6 @@
 
 ![Landingpage](landingpage.png)
 
-[▶ Watch Demo](Screencast from 2026-02-10 21-23-35.webm)
-
 ```Shopverce — E-commerce Frontend (Polished README)
 
 ⚠️ Note:
