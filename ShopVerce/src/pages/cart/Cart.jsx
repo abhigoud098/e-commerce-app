@@ -5,18 +5,17 @@ import ApiContext from "../../context/ApiContext";
 import Footer from "../../components/footer/Footer";
 
 function Cart() {
- const scrollToTop = () => {
-  const cart = document.getElementById("cart-wrapper");
-  if (cart) {
-    cart.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }
-};
+  const scrollToTop = () => {
+    const cart = document.getElementById("cart-wrapper");
+    if (cart) {
+      cart.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
 
-
-  const { theam } = useContext(ApiContext);
+  const { them } = useContext(ApiContext);
 
   const [cartItems, setCartItems] = useState([]);
 
@@ -61,10 +60,9 @@ function Cart() {
   const total = Math.floor(subtotal + delivery);
 
   return (
-    <div className={`cart-wrapper ${theam ? "dark" : "light"}`}>
-      <h2 className="cart-title">Shopping Cart</h2>
+    <div className={`cart-wrapper ${them === "dark" ? "dark" : ""}`}>
 
-      <div className="cart-layout">
+      <div className={`cart-layout $${them === "dark" ? "dark" : ""}`}>
         {/* LEFT SIDE */}
         <div className="cart-left">
           {cartItems.length === 0 ? (
@@ -76,7 +74,7 @@ function Cart() {
 
                 <div className="cart-info">
                   <h4>{item.title}</h4>
-                  <p className="price">₹{item.price}</p>
+                  <p className="price">${item.price}</p>
                   <p className="stock">In stock</p>
 
                   <div className="cart-actions">
@@ -110,7 +108,7 @@ function Cart() {
 
           <div className="summary-row">
             <span>Delivery</span>
-            <span>{delivery === 0 ? "FREE" : `$${delivery}`}</span>
+            <span>{delivery === 0 ? "FREE" : `${delivery}`}</span>
           </div>
 
           <hr />

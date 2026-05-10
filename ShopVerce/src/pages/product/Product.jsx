@@ -4,7 +4,7 @@ import ProductCard from "../../components/productCard/ProductCard";
 import "./Product.css";
 
 function Product() {
-  const { data, searchItem } = useContext(ApiContext);
+  const { data, searchItem, them } = useContext(ApiContext);
   const products = data?.products || [];
 
   const search = searchItem.trim().toLowerCase();
@@ -25,8 +25,8 @@ function Product() {
   }
 
   return (
-    <div className="main-container">
-      <div className="still-you-want">
+    <div className={`main-container ${them === "dark" ? "dark" : ""}`}>
+      <div className={`still-you-want ${them === "dark" ? "dark" : ""}`}>
         {filteredProducts.length > 0 ? (
           filteredProducts.map((item) => (
             <div className="product-component" key={item.id}>

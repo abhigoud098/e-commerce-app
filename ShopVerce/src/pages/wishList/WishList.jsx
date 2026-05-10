@@ -6,7 +6,7 @@ import ApiContext from "../../context/ApiContext";
 function WishList() {
   const initialWishlist = JSON.parse(localStorage.getItem("wishList")) || [];
 
-  const { theam, data} = useContext(ApiContext);
+  const { them, data } = useContext(ApiContext);
   const navigate = useNavigate();
 
   const removeItem = (id) => {
@@ -16,16 +16,16 @@ function WishList() {
   };
 
   const addToCart = (id) => {
-    sendIdOfProduct(id)
+    sendIdOfProduct(id);
     navigate("/app/cart");
     removeItem(id);
   };
 
-    function sendIdOfProduct(id) {
+  function sendIdOfProduct(id) {
     const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
     const existingProduct = storedCartItems.find((item) => item.id === id);
-     const item = data?.products?.find((item) => item.id === id);
+    const item = data?.products?.find((item) => item.id === id);
 
     if (existingProduct) {
       existingProduct.quantity += 1;
@@ -49,13 +49,16 @@ function WishList() {
   }
 
   return (
-    <div className="wishlist-container">
+    <div className={`wishlist-container ${them === "dark" ? "dark" : ""}`}>
       <h1>You want buy..?</h1>
       <h4>Total wishlist {initialWishlist.length}</h4>
 
       <div className="wishlist-grid">
         {initialWishlist.map((item) => (
-          <div className={`wishlist-card ${theam ? "dark" : ""}`} key={item.id}>
+          <div
+            className={`wishlist-card ${them === "dark" ? "dark" : ""}`}
+            key={item.id}
+          >
             <img src={item?.images[0]} alt={item?.brand} />
 
             <h3>{item.name}</h3>

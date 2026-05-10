@@ -8,7 +8,7 @@ import ApiContext from "../../context/ApiContext";
 
 function Checkout() {
   const navigate = useNavigate();
-  const { theam } = useContext(ApiContext);
+  const { them } = useContext(ApiContext);
 
   const productInfo = JSON.parse(localStorage.getItem("cartItems")) || [];
   const addressList = JSON.parse(localStorage.getItem("userAddress")) || [];
@@ -72,7 +72,7 @@ function Checkout() {
     <>
       <ToastContainer position="top-right" theme="colored" />
 
-      <div className={`checkout-wrapper ${theam ? "dark" : ""}`}>
+      <div className={`checkout-wrapper ${them === "dark" ? "dark" : ""}`}>
         {/* ================= LEFT ================= */}
         <div className="checkout-left">
           <Link to="/app/cart">
@@ -126,7 +126,7 @@ function Checkout() {
               <span>
                 {item.title} × {item.quantity}
               </span>
-              <span>₹{item.price * item.quantity}</span>
+              <span>${item.price * item.quantity}</span>
             </div>
           ))}
 
@@ -134,7 +134,7 @@ function Checkout() {
 
           <div className="summary-row">
             <span>Subtotal</span>
-            <span>₹{subtotal}</span>
+            <span>${subtotal}</span>
           </div>
 
           <div className="summary-row">
@@ -146,14 +146,14 @@ function Checkout() {
 
           <div className="summary-row total">
             <span>Order Total</span>
-            <span>₹{total}</span>
+            <span>${total}</span>
           </div>
         </div>
       </div>
 
       {showAddressModal && (
         <div className="modal-overlay">
-          <div className={`modal-content ${theam ? "dark" : ""}`}>
+          <div className={`modal-content ${them === "dark" ? "dark" : ""}`}>
             <DeliveryAddress
               onSave={(addr) => {
                 setSavedAddress(addr);
