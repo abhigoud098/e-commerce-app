@@ -152,7 +152,7 @@ function PaymentMethod({ total, onPay, subtotal }) {
         </div>
 
         {/* CASH ON DELIVERY */}
-       <div
+        <div
           className={`pay-box ${method === "cod" ? "active" : ""} ${
             theam ? "dark" : ""
           }`}
@@ -172,9 +172,10 @@ function PaymentMethod({ total, onPay, subtotal }) {
             </p>
           )}
         </div>
-
         <button className="pay-btn" onClick={handlePay}>
-          Use this payment method • ₹{total}
+          {method
+            ? `Pay $${total} using ${method.toUpperCase()}`
+            : `Pay $${total}`}
         </button>
       </div>
     </>

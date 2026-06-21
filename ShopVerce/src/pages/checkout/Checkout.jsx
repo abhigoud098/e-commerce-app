@@ -73,6 +73,7 @@ function Checkout() {
       <ToastContainer position="top-right" theme="colored" />
 
       <div className={`checkout-wrapper ${them === "dark" ? "dark" : ""}`}>
+      
         {/* ================= LEFT ================= */}
         <div className="checkout-left">
           <Link to="/app/cart">
@@ -139,7 +140,7 @@ function Checkout() {
 
           <div className="summary-row">
             <span>Delivery</span>
-            <span>{delivery === 0 ? "FREE" : `₹${delivery}`}</span>
+            <span>{delivery === 0 ? "FREE" : `${delivery}`}</span>
           </div>
 
           <hr />
