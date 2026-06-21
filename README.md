@@ -26,13 +26,11 @@ shopverce-app-9ydm.vercel.app](https://shopverce-app-9ydm.vercel.app/)
 
 Frontend:
 - React.js
-- JavaScript (ES6+)
 - CSS3
-- HTML5
 - React Router
 - Context API
-- Axios
-
+- LocalStorage
+- API Intigration
 
 ## 📂 Project Structure
 
