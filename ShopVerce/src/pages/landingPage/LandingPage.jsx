@@ -4,6 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 function LandingPage() {
   return (
+    
     <div className="landing-container">
       {/* Top Navbar */}
       <nav className="landing-nav">

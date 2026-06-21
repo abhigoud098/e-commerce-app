@@ -50,9 +50,8 @@ function WishList() {
 
   return (
     <div className={`wishlist-container ${them === "dark" ? "dark" : ""}`}>
-      <h1>You want buy..?</h1>
       <h4>Total wishlist {initialWishlist.length}</h4>
-
+      <h1>Products You want...!</h1>
       <div className="wishlist-grid">
         {initialWishlist.map((item) => (
           <div
@@ -62,7 +61,7 @@ function WishList() {
             <img src={item?.images[0]} alt={item?.brand} />
 
             <h3>{item.name}</h3>
-            <p className="price">₹{item.price}</p>
+            <p className="price">${item.price}</p>
 
             <p className={item.availabilityStatus ? "stock in" : "stock out"}>
               {item.availabilityStatus ? "In Stock" : "Out of Stock"}

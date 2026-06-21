@@ -5,15 +5,12 @@ import ApiContext from "../../context/ApiContext";
 import Footer from "../../components/footer/Footer";
 
 function Cart() {
-  const scrollToTop = () => {
-    const cart = document.getElementById("cart-wrapper");
-    if (cart) {
-      cart.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
-  };
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 
   const { them } = useContext(ApiContext);
 
@@ -61,73 +58,76 @@ function Cart() {
 
   return (
     <div className={`cart-wrapper ${them === "dark" ? "dark" : ""}`}>
+      <div className="cart-content">
+        <div className={`cart-layout ${them === "dark" ? "dark" : ""}`}>
+          {/* LEFT SIDE */}
+          <div className="cart-left">
+            {cartItems.length === 0 ? (
+              <p className="empty-cart">🛒 Your cart is empty</p>
+            ) : (
+              cartItems.map((item) => (
+                <div className="cart-item" key={item.id}>
+                  <img src={item.images[0]} alt={item.title} />
 
-      <div className={`cart-layout $${them === "dark" ? "dark" : ""}`}>
-        {/* LEFT SIDE */}
-        <div className="cart-left">
-          {cartItems.length === 0 ? (
-            <p className="empty-cart">Your cart is empty</p>
-          ) : (
-            cartItems.map((item) => (
-              <div className="cart-item" key={item.id}>
-                <img src={item.images[0]} alt={item.title} />
+                  <div className="cart-info">
+                    <h4>{item.title}</h4>
+                    <p className="price">${item.price}</p>
+                    <p className="stock">In stock</p>
 
-                <div className="cart-info">
-                  <h4>{item.title}</h4>
-                  <p className="price">${item.price}</p>
-                  <p className="stock">In stock</p>
+                    <div className="cart-actions">
+                      <div className="qty-box">
+                        <button onClick={() => decreaseQty(item.id)}>-</button>
+                        <span>{item.quantity}</span>
+                        <button onClick={() => increaseQty(item.id)}>+</button>
+                      </div>
 
-                  <div className="cart-actions">
-                    <div className="qty-box">
-                      <button onClick={() => decreaseQty(item.id)}>-</button>
-                      <span>{item.quantity}</span>
-                      <button onClick={() => increaseQty(item.id)}>+</button>
+                      <button
+                        className="remove-btn"
+                        onClick={() => removeItem(item.id)}
+                      >
+                        Delete
+                      </button>
                     </div>
-
-                    <button
-                      className="remove-btn"
-                      onClick={() => removeItem(item.id)}
-                    >
-                      Delete
-                    </button>
                   </div>
                 </div>
+              ))
+            )}
+          </div>
+
+          {/* RIGHT SIDE */}
+          {cartItems.length > 0 && (
+            <div className="cart-right">
+              <h3>Order Summary</h3>
+
+              <div className="summary-row">
+                <span>Subtotal</span>
+                <span>${subtotal}</span>
               </div>
-            ))
+
+              <div className="summary-row">
+                <span>Delivery</span>
+                <span>{delivery === 0 ? "FREE" : `$${delivery}`}</span>
+              </div>
+
+              <hr />
+
+              <div className="summary-row total">
+                <span>Total</span>
+                <span>${total}</span>
+              </div>
+
+              <Link to="/app/checkout">
+                <button className="checkout-btn">Proceed to Buy</button>
+              </Link>
+            </div>
           )}
         </div>
-
-        {/* RIGHT SIDE */}
-        <div className="cart-right">
-          <h3>Order Summary</h3>
-
-          <div className="summary-row">
-            <span>Subtotal</span>
-            <span>${subtotal}</span>
-          </div>
-
-          <div className="summary-row">
-            <span>Delivery</span>
-            <span>{delivery === 0 ? "FREE" : `${delivery}`}</span>
-          </div>
-
-          <hr />
-
-          <div className="summary-row total">
-            <span>Total</span>
-            <span>${total}</span>
-          </div>
-
-          <Link to="/app/checkout">
-            <button className="checkout-btn">Proceed to Buy</button>
-          </Link>
-        </div>
       </div>
+
       <div className="footer-div">
         <Footer onBackToTop={scrollToTop} />
       </div>
     </div>
   );
 }
-
 export default Cart;

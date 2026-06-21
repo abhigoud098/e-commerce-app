@@ -26,17 +26,15 @@ function Product() {
 
   return (
     <div className={`main-container ${them === "dark" ? "dark" : ""}`}>
-      <div className={`still-you-want ${them === "dark" ? "dark" : ""}`}>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((item) => (
-            <div className="product-component" key={item.id}>
-              <ProductCard item={item} />
-            </div>
-          ))
-        ) : (
-          <h3>No products found</h3>
-        )}
-      </div>
+      {filteredProducts.length > 0 ? (
+        filteredProducts.map((item) => (
+          <div className="product-component" key={item.id}>
+            <ProductCard item={item} />
+          </div>
+        ))
+      ) : (
+        <h3>No products found</h3>
+      )}
     </div>
   );
 }

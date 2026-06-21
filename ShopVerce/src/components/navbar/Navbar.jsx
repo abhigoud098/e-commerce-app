@@ -122,7 +122,7 @@ function Navbar() {
 
       <ul className="nav-links">
         <li>
-          <Link to="/app">Home</Link>
+          <Link onClick={goHomePage}>Home</Link>
         </li>
         <li>
           <Link to="/app/product">Product</Link>

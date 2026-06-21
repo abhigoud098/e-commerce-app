@@ -1,14 +1,13 @@
 import "./Footer.css";
 
-const Footer = ({onBackTotop}) => {
-
+const Footer = ({ onBackToTop }) => {
   return (
     <footer className="footer">
       {/* Back to top */}
-      <div className="footer-top" onClick={onBackTotop}>
+      <div className="footer-top" onClick={onBackToTop}>
         Back to top
       </div>
-
+      
       {/* Main footer links */}
       <div className="footer-main">
         <div>
@@ -55,7 +54,8 @@ const Footer = ({onBackTotop}) => {
       {/* Bottom bar */}
       <div className="footer-bottom">
         <div className="footer-brand">
-        <img src="/src/assets/icone.png" alt="icon" />ShopVerce
+          <img src="/src/assets/icone.png" alt="icon" />
+          ShopVerce
         </div>
 
         <div className="footer-meta">

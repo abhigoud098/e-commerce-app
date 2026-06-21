@@ -9,11 +9,14 @@
 }
 
 .landing-container {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
   color: white;
-  overflow: hidden;
+  overflow-x: hidden;
+  background-image: url("../../assets/landingpagebgimage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Navbar */
@@ -21,12 +24,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 24px 60px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .brand {
-  font-size: 26px;
+  font-size: clamp(26px, 4vw, 40px);
   letter-spacing: 2px;
   color: #ff6d1f;
   font-family: "Pacifico", cursive;
@@ -37,9 +41,11 @@
 .auth-buttons {
   display: flex;
   gap: 14px;
+  flex-wrap: wrap;
 }
 
-.login-btn {
+.login-btn,
+.signup-btn {
   color: #ff6d1f;
   font-weight: bolder;
   text-decoration: none;
@@ -47,35 +53,34 @@
   padding: 8px 18px;
   border-radius: 20px;
   transition: all 0.3s ease;
+  font-size: clamp(13px, 2vw, 16px);
+  white-space: nowrap;
 }
 
 .signup-btn {
-  text-decoration: none;
-  padding: 8px 18px;
-  border-radius: 20px;
   font-weight: 500;
-  border: 2px solid #ff6d1f;
   transition: transform 0.3s ease;
-  color: #ff6d1f;
-  font-weight: bolder;
 }
 
 /* Hero */
 .hero {
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 40px 20px;
 }
 
 /* Big animated title */
 .hero-title {
-  font-size: 110px;
+  font-size: clamp(40px, 9vw, 110px);
   font-weight: 800;
-  letter-spacing: 6px;
+  letter-spacing: clamp(2px, 0.5vw, 6px);
   animation: fadeUp 1.2s ease forwards;
+  line-height: 1.1;
+  word-break: break-word;
 }
 
 .hero-title span {
@@ -86,11 +91,12 @@
 }
 
 .hero-subtitle {
-  font-size: 20px;
+  font-size: clamp(15px, 2.2vw, 20px);
   color: #ccc;
   margin-top: 10px;
   animation: fadeUp 1.6s ease forwards;
   font-family: "Pacifico", cursive;
+  max-width: 90%;
 }
 
 .hero-actions {
@@ -103,12 +109,13 @@
   background: #ff6d1f;
   color: black;
   padding: 16px 40px;
-  font-size: 18px;
+  font-size: clamp(15px, 2vw, 18px);
   border-radius: 30px;
   font-weight: 600;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  display: inline-block;
 }
 
 .enter-btn:hover {
@@ -125,5 +132,91 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ===== Responsive Breakpoints ===== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .landing-nav {
+    padding: 20px 40px;
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px) {
+  .landing-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 24px;
+  }
+
+  .auth-buttons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero {
+    padding: 30px 16px;
+  }
+
+  .hero-actions {
+    margin-top: 30px;
+  }
+
+  .enter-btn {
+    padding: 14px 32px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .landing-nav {
+    padding: 16px 20px;
+  }
+
+  .login-btn,
+  .signup-btn {
+    padding: 7px 14px;
+    flex: 1;
+    text-align: center;
+  }
+
+  .auth-buttons {
+    width: 100%;
+  }
+
+  .hero-title {
+    letter-spacing: 1px;
+  }
+
+  .enter-btn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 24px;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+  .brand {
+    font-size: 24px;
+  }
+
+  .hero-title {
+    font-size: clamp(32px, 11vw, 50px);
+  }
+}
+
+/* Landscape mobile (short viewport height) */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 24px 16px;
+  }
+
+  .hero-actions {
+    margin-top: 16px;
   }
 }

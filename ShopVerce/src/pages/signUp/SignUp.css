@@ -1,15 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Liter:wght@300;400;500;600&display=swap");
 
-body {
-  font-family: "Liter", sans-serif;
+* {
+  box-sizing: border-box;
+}
+
+/* Page wrapper — centers the whole card on the viewport.
+   This was missing a base rule, which is why the card was
+   sitting top-left at its natural content size instead of
+   centered, regardless of screen width. */
+.signup-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 20px;
 }
 
 /* Main container */
 .img-signup-div {
   width: 65vw;
+  max-width: 1100px;
   display: flex;
   gap: 60px;
   padding: 30px;
@@ -22,6 +33,8 @@ body {
 /* Left branding panel */
 .img-div {
   width: 65%;
+  min-width: 0;
+  container-type: inline-size;
   background: linear-gradient(135deg, #ff6d1f, #ff8c4b);
   border-radius: 18px;
   display: flex;
@@ -30,16 +43,18 @@ body {
   justify-content: center;
   color: white;
   box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.15);
+  padding: 20px;
 }
 
 .img-div h1 {
-  font-size: 18vh;
+  font-size: clamp(32px, 16cqw, 150px);
   font-weight: 700;
   line-height: 1;
+  margin: 0;
 }
 
 .img-div span {
-  font-size: 9vh;
+  font-size: clamp(18px, 8cqw, 75px);
   font-family: "Pacifico", cursive;
   opacity: 0.95;
   color: #ffffff;
@@ -47,7 +62,8 @@ body {
 
 /* Signup card */
 .signup {
-  width: 340px;
+  width: clamp(300px, 30vw, 340px);
+  min-width: 0;
   padding: 25px;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 16px;
@@ -87,6 +103,7 @@ form {
 /* Inputs */
 form input {
   height: 48px;
+  width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
 
@@ -160,6 +177,7 @@ form input:focus {
 /* Submit Button */
 form input[type="submit"] {
   height: 50px;
+  width: 100%;
 
   background: linear-gradient(135deg, #ff6d1f, #ff8c4b);
   color: #fff;
@@ -206,28 +224,47 @@ form span a {
   color: #ff3b3b;
 }
 
+/* ---- Responsive breakpoints ----
+   Ordered widest to narrowest on purpose: with max-width media
+   queries, the rule that appears LAST in the file wins when two
+   queries both match (e.g. a 400px screen matches both 1024px and
+   600px breakpoints). Narrowest must come last or its overrides
+   get silently undone by the wider block. */
+
+@media (max-width: 1024px) {
+  .img-signup-div {
+    width: 90vw;
+    gap: 30px;
+    padding: 20px;
+  }
+
+  .img-div {
+    width: 50%;
+  }
+
+  .signup {
+    width: 300px;
+  }
+}
+
 @media (max-width: 600px) {
   .signup-wrapper {
     padding: 20px 0;
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .img-signup-div {
-    display: flex;
+    width: 100%;
     justify-content: center;
+    padding: 16px;
+    box-shadow: none;
+    background: transparent;
+    backdrop-filter: none;
   }
 
   /* Hide big branding panel on mobile */
   .img-div {
     display: none;
-  }
-
-  .img-div h1 {
-    font-size: 12vh;
-  }
-
-  .img-div span {
-    font-size: 6vh;
   }
 
   .signup {
@@ -247,26 +284,16 @@ form span a {
   }
 }
 
-@media (max-width: 1024px) {
-  .img-signup-div {
-    width: 90vw;
-    gap: 30px;
-    padding: 20px;
-  }
-
-  .img-div {
-    width: 55%;
-  }
-
-  .img-div h1 {
-    font-size: 14vh;
-  }
-
-  .img-div span {
-    font-size: 7vh;
-  }
-
+@media (max-width: 380px) {
   .signup {
-    width: 320px;
+    padding: 16px;
+  }
+
+  .hader {
+    font-size: 20px;
+  }
+
+  .gender-group label {
+    font-size: 13px;
   }
 }
