@@ -32,23 +32,22 @@ Frontend:
 - LocalStorage
 - API Intigration
 
-## 📂 Project Structure
 
+```text
+📂 Project Structure
 
 ShopSevi/
-│
 ├── src/
-│ ├── components/
-│ ├── pages/
-│ ├── context/
-│ ├── assets/
-│ ├── App.jsx
-│ └── main.jsx
-│
+│   ├── components/
+│   ├── pages/
+│   ├── context/
+│   ├── assets/
+│   ├── App.jsx
+│   └── main.jsx
 ├── public/
-│
 ├── package.json
 └── README.md
+```
 
 
 
