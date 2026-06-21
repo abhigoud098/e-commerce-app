@@ -104,9 +104,3 @@ The application is deployed on:
 
 **Abhishek Goud**
 
-GitHub: your-github-link
-
-
-## 📄 License
-
-This project is licensed under the MIT License.
